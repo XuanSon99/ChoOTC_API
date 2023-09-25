@@ -15,12 +15,8 @@ class SetupController extends Controller
         return Setup::orderBy('created_at', 'DESC')->get();
     }
 
-    public function store(Request $request)
-    {
-        // $data = new Setup([]);
-        // $data->save();
-
-        // return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
+    public function show(Setup $Setup){
+        return $Setup;
     }
 
     public function update(Request $request, Setup $Setup)
