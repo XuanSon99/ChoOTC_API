@@ -67,3 +67,5 @@ Route::group([
     Route::get('overview', 'App\Http\Controllers\ClientController@getOverview');
     Route::post('send-message', 'App\Http\Controllers\ClientController@sendMessWithBot');
 });
+
+Route::resource('sales', 'App\Http\Controllers\SaleController');
