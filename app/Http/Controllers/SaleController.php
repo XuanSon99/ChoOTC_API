@@ -38,7 +38,7 @@ class SaleController extends Controller
         ]);
         $data->save();
 
-        return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
+        return response()->json(["status" => true, "data" => $data], 201);
     }
 
     public function show(Sale $Sale)
