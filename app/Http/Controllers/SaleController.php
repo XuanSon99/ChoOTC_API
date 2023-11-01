@@ -34,7 +34,8 @@ class SaleController extends Controller
             'paid_money' => $request->paid_money,
             'debt' => $request->debt,
             'bank_name' => $request->bank_name,
-            'note' => $request->note
+            'note' => $request->note,
+            'type' => $request->type
         ]);
         $data->save();
 
@@ -48,6 +49,7 @@ class SaleController extends Controller
 
     public function update(Request $request, Sale $Sale)
     {
+        $Sale->update($request->all());
         return response()->json(["status" => true], 200);
     }
 
