@@ -17,9 +17,21 @@ class SaleController extends Controller
         return $key;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return Sale::orderBy('created_at', 'DESC')->get();
+        $query = Sale::orderBy('created_at', 'DESC')->where('type', $request->get('type'));
+
+        if ($request->has('from') && $request->has('to'))
+            if ($request->get('from') == $request->get('to'))
+                $query->whereDate('created_at', '=', $request->get('from'));
+            else
+                $query->whereBetween('created_at', [$request->get('from'), $request->get('to')]);
+
+        $perPage = 10;
+        if ($request->has('perPage'))
+            $perPage = $request->get('perPage');
+
+        return $query->paginate($perPage);
     }
 
     public function store(Request $request)
@@ -57,5 +69,18 @@ class SaleController extends Controller
     {
         $Sale->delete();
         return response()->json(["status" => true], 200);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        return Sale::where('code', 'like', "%{$query}%")->get();
+    }
+
+    public function paginate($items, $perPage, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }

@@ -66,6 +66,12 @@ Route::group([
     Route::resource('client', 'App\Http\Controllers\ClientController');
     Route::get('overview', 'App\Http\Controllers\ClientController@getOverview');
     Route::post('send-message', 'App\Http\Controllers\ClientController@sendMessWithBot');
+
+    Route::group([
+        'prefix' => 'search'
+    ], function () {
+        Route::get('sales', 'App\Http\Controllers\SaleController@search');
+    });
 });
 
 Route::resource('sales', 'App\Http\Controllers\SaleController');
