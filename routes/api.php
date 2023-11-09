@@ -57,11 +57,13 @@ Route::get('user-info/{username}', 'App\Http\Controllers\ClientController@getUse
 Route::post('update-rep', 'App\Http\Controllers\VotingController@updateRep');
 Route::post('add-user', 'App\Http\Controllers\VotingController@addUser');
 
+Route::resource('admin', 'App\Http\Controllers\AdminController');
+
 Route::group([
     'middleware' => 'auth:admin'
 ], function () {
     Route::get('info/{username}', 'App\Http\Controllers\AdminController@getInfo');
-    Route::resource('admin', 'App\Http\Controllers\AdminController');
+    // Route::resource('admin', 'App\Http\Controllers\AdminController');
     Route::post('upload', 'App\Http\Controllers\PostController@uploadImage');
     Route::resource('client', 'App\Http\Controllers\ClientController');
     Route::get('overview', 'App\Http\Controllers\ClientController@getOverview');
