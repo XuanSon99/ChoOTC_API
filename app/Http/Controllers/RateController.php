@@ -13,7 +13,7 @@ class RateController extends Controller
 {
     public function getPrice(Request $request)
     {
-        $param = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search';
+        $param = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search?tradeType=buy&asset=usdt&fiat=vnd&page=1&rows=20';
         
         $data = [
             'asset' => $request->asset,
@@ -21,7 +21,7 @@ class RateController extends Controller
             'merchantCheck' => true,
             'page' => $request->page,
             'publisherType' => null,
-            'rows' => 9,
+            'rows' => 20,
             'tradeType' => $request->type,
         ];
 
