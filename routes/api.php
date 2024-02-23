@@ -77,3 +77,4 @@ Route::group([
 });
 
 Route::resource('sales', 'App\Http\Controllers\SaleController');
+Route::resource('tracking', 'App\Http\Controllers\TrackingController');
