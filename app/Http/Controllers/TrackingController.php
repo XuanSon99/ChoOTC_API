@@ -10,7 +10,7 @@ class TrackingController extends Controller
 {
     public function index()
     {
-        return Tracking::orderBy('created_at', 'DESC')->get();
+        return Tracking::all();
     }
 
     public function update(Request $request, Tracking $Tracking)
