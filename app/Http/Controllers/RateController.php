@@ -226,6 +226,18 @@ class RateController extends Controller
         return $rate;
     }
 
+    public function getGMO()
+    {
+        $param = 'https://api.coin.z.com/public/v1/ticker?symbols';
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ])->get($param);
+
+        return $response;
+    }
+
     function moveElement(&$array, $a, $b)
     {
         $out = array_splice($array, $a, 1);
