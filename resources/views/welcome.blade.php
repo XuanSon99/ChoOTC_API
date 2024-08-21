@@ -1,13 +1,2 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>https://api.chootc.com</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content=""><meta property="og:image" content=""><meta property="og:url" content=""><link rel="icon" href="/img/logo.png"><title>Mua bán USDT</title><link href="/js/chunk-631a896f.4ce2c945.js" rel="prefetch"><link href="/css/app.156a678b.css" rel="preload" as="style"><link href="/css/chunk-vendors.bc82c5fd.css" rel="preload" as="style"><link href="/js/app.314166f2.js" rel="preload" as="script"><link href="/js/chunk-vendors.c4911678.js" rel="preload" as="script"><link href="/css/chunk-vendors.bc82c5fd.css" rel="stylesheet"><link href="/css/app.156a678b.css" rel="stylesheet"></head><body><div id="app"></div><script src="/js/chunk-vendors.c4911678.js"></script><script src="/js/app.314166f2.js"></script></body></html>
