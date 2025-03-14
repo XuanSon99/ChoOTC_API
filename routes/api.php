@@ -79,3 +79,5 @@ Route::group([
 Route::resource('sales', 'App\Http\Controllers\SaleController');
 Route::resource('tracking', 'App\Http\Controllers\TrackingController');
 Route::get('gmo', 'App\Http\Controllers\RateController@getGMO');
+
+Route::resource('refdata', 'App\Http\ControllersRefDataController');
