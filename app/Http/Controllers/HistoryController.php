@@ -27,7 +27,7 @@ class HistoryController extends Controller
         return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
     }
 
-    public function hisUser(Request $request)
+    public function withdrawTotal(Request $request)
     {
         $uid = $request->route('uid');
         $his = History::where("uid", $uid)->where("status", 'p')->get()->toArray();
