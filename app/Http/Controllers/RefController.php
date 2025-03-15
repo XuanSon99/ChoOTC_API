@@ -21,15 +21,14 @@ class RefController extends Controller
         $data = array();
         foreach ($db as $item) {
             $his = History::where("uid", $item->uid)->where("status", 'p')->get()->toArray();
-            $withdraw = 0;
-            if (!is_null($his[0])) $withdraw = array_sum(array_column($his,'amount'));
+            $withdraw = array_sum(array_column($his,'amount'));
 
             $list = new \stdClass();
             $list->uid = $item->uid;
             $list->deposit = $item->deposit;
             $list->inviteTime = $item->inviteTime;
             $list->refund = $item->total;
-            $list->withdraw = $item->withdraw;
+            $list->withdraw = $withdraw;
             array_push($data, $list);
         }
         return $data;
