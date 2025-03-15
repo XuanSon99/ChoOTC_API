@@ -16,7 +16,7 @@ class RefController extends Controller
     }
 
     public function show(Ref $Ref){
-        return $Ref;
+        return $Ref["data"];
     }
 
     public function update(Request $request, Ref $Ref)
