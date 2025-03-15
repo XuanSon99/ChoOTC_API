@@ -28,7 +28,7 @@ class RefController extends Controller
             $list->deposit = $item->deposit;
             $list->inviteTime = $item->inviteTime;
             $list->refund = $item->total;
-            $list->withdraw = $item->uid;
+            $list->withdraw = $item->withdraw;
             array_push($data, $list);
         }
         return $data;
