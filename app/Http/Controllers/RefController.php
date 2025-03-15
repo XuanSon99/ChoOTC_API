@@ -16,12 +16,12 @@ class RefController extends Controller
     }
 
     public function show(Ref $Ref){
-        $list = json_decode($Ref["data"], true);
-        foreach ($list as $key) {
-            return $key;
+        $data = json_decode($Ref["data"], true);
+        $list = array();
+        foreach ($data as $item) {
+            array_push($list, $item);
         }
-
-        
+        return $list;
     }
 
     public function update(Request $request, Ref $Ref)
