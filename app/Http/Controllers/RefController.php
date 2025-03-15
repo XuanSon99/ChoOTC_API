@@ -21,7 +21,8 @@ class RefController extends Controller
         $data = array();
         foreach ($db as $item) {
             $his = History::where("uid", $item->uid)->where("status", 'p')->get()->toArray();
-            $withdraw = array_sum(array_column($his,'amount'));
+            $withdraw = 0;
+            if (!is_null($his[0])) $withdraw = array_sum(array_column($his,'amount'));
 
             $list = new \stdClass();
             $list->uid = $item->uid;
