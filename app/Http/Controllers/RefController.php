@@ -16,7 +16,11 @@ class RefController extends Controller
     }
 
     public function show(Ref $Ref){
-        return $Ref["data"];
+        foreach ($Ref["data"] as $key) {
+            return $key;
+        }
+
+        
     }
 
     public function update(Request $request, Ref $Ref)
