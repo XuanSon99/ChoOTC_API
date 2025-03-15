@@ -30,7 +30,7 @@ class HistoryController extends Controller
     public function hisUser(Request $request)
     {
         $uid = $request->route('uid');
-        $his = History::where("uid", $uid)->get()->toArray();
+        $his = History::where("uid", $uid)->where("status", 'p')->get()->toArray();
         $value = array_sum(array_column($his,'amount'));
         return $value;
     }
