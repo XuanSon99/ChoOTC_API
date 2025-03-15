@@ -16,8 +16,8 @@ class RefController extends Controller
     }
 
     public function show(Ref $Ref){
-        return json_decode($Ref["data"], true);
-        foreach ($Ref["data"] as $key) {
+        $list = json_decode($Ref["data"], true);
+        foreach ($list as $key) {
             return $key;
         }
 
