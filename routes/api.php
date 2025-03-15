@@ -81,3 +81,5 @@ Route::resource('tracking', 'App\Http\Controllers\TrackingController');
 Route::get('gmo', 'App\Http\Controllers\RateController@getGMO');
 
 Route::resource('ref', 'App\Http\Controllers\RefController');
+Route::resource('history', 'App\Http\Controllers\HistoryController');
+Route::get('history/{uid}', 'App\Http\Controllers\HistoryController@hisUser');
