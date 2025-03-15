@@ -24,11 +24,11 @@ class RefController extends Controller
             // $withdraw = array_sum(array_column($his,'amount'));
 
             $list = new \stdClass();
-            $list->uid = $item->uid;
-            $list->deposit = $item->deposit;
-            $list->inviteTime = $item->inviteTime;
-            $list->refund = $item->total;
-            $list->withdraw = $item->uid;
+            $list->uid = $item;
+            // $list->deposit = $item->deposit;
+            // $list->inviteTime = $item->inviteTime;
+            // $list->refund = $item->total;
+            // $list->withdraw = $item->uid;
             array_push($data, $list);
         }
         return $data;
