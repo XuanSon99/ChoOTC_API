@@ -17,7 +17,7 @@ class RefController extends Controller
     }
 
     public function show(Ref $Ref){
-        $db = json_decode($Ref["data"], true);
+        $db = json_decode($Ref["data"]);
         $data = array();
         foreach ($db as $item) {
             // $his = History::where("uid", $item->uid)->where("status", 'p')->get()->toArray();
