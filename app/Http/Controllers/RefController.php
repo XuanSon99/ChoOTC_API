@@ -39,7 +39,23 @@ class RefController extends Controller
         $uid = $request->route('uid');
         $ref = Ref::where("code", "cm")->first();
         $db = json_decode($ref["data"]);
-        return $db;
+        $data = array();
+        foreach ($db as $item) {
+            if($item->uid == $uid)
+            {
+                $his = History::where("uid", $item->uid)->where("status", 'p')->get()->toArray();
+                $withdraw = array_sum(array_column($his,'amount'));
+
+                $list = new \stdClass();
+                $list->uid = $item->uid;
+                $list->deposit = $item->deposit;
+                $list->inviteTime = $item->inviteTime;
+                $list->refund = $item->total;
+                $list->withdraw = $withdraw;
+                array_push($data, $list);
+            }
+        }
+        return $data;
     }
 
     public function update(Request $request, Ref $Ref)
