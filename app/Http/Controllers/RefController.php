@@ -34,6 +34,14 @@ class RefController extends Controller
         return $data;
     }
 
+    public function checkUser(Request $request)
+    {
+        $uid = $request->route('uid');
+        $ref = Ref::where("code", "cm")->first();
+        $db = json_decode($ref["data"]);
+        return $db;
+    }
+
     public function update(Request $request, Ref $Ref)
     {
         $Ref->update($request->all());

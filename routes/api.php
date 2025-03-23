@@ -83,3 +83,4 @@ Route::get('gmo', 'App\Http\Controllers\RateController@getGMO');
 Route::resource('ref', 'App\Http\Controllers\RefController');
 Route::resource('history', 'App\Http\Controllers\HistoryController');
 Route::get('withdraw/{uid}', 'App\Http\Controllers\HistoryController@withdrawTotal');
+Route::get('check/{uid}', 'App\Http\Controllers\RefController@checkUser');
