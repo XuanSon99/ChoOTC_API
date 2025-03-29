@@ -56,7 +56,7 @@ class HistoryController extends Controller
         $data->save();
 
         $chat_id = "-4768463107";
-        $text = $request->uid . " vừa thực hiện lệnh rút " . $request->amount . "USDT";
+        $text = "User " . $request->uid . " vừa thực hiện lệnh rút " . $request->amount . " USDT";
         $this->sendMessage($chat_id, $text);
 
         return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
