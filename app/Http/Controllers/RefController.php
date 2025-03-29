@@ -56,7 +56,7 @@ class RefController extends Controller
             }
         }
 
-        $balance =  reset($data)->context;
+        $balance = array_values($data)[0];
         return $balance;
 
         return $data;
