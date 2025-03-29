@@ -56,7 +56,7 @@ class RefController extends Controller
             }
         }
 
-        $balance = array_values($data)[0];
+        $balance = array_values($data)[0]->refund;
         return $balance;
 
         return $data;
