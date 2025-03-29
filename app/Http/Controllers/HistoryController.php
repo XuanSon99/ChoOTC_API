@@ -6,6 +6,7 @@ use App\Models\History;
 use App\Models\Ref;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use Validator;
 
