@@ -54,6 +54,10 @@ class HistoryController extends Controller
         ]);
         $data->save();
 
+        $chat_id = "-4768463107";
+        $text = $request->uid . " vừa thực hiện lệnh rút " . $request->amount . "USDT";
+        $this->sendMessage($chat_id, $text);
+
         return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
     }
 
@@ -71,5 +75,17 @@ class HistoryController extends Controller
             'status' => $request->status
         ]);
         return response()->json(["status" => true], 200);
+    }
+
+    public function sendMessage($chat_id, $text)
+    {
+        $token = "7990958051:AAFdbbvQHda4fKvN6-Dy7Cc8obh_lDnr14A";
+
+        $params = "https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=" . $text . "&parse_mode=html";
+
+        Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ])->get($params);
     }
 }
