@@ -37,8 +37,14 @@ class HistoryController extends Controller
                 array_push($data, $list);
             }
         }
-        $balance =  $data[0]['refund'];
-        return $balance;
+        
+        $refund = array_values($data)[0]->refund;
+        $withdraw = array_values($data)[0]->withdraw;
+        $balance = $refund / 2 - $withdraw;
+
+        if($balance < $request->amount){
+            return response()->json(["status" => false, "message" => ["Số dư không đủ"]], 400);
+        }
 
         $data = new History([
             'uid' => $request->uid,

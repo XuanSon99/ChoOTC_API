@@ -55,13 +55,6 @@ class RefController extends Controller
                 array_push($data, $list);
             }
         }
-
-        $refund = array_values($data)[0]->refund;
-        $withdraw = array_values($data)[0]->withdraw;
-        $balance = $refund / 2 - $withdraw;
-
-        return $balance;
-
         return $data;
     }
 
