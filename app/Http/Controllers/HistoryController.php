@@ -17,6 +17,29 @@ class HistoryController extends Controller
 
     public function store(Request $request)
     {
+
+        $uid = $request->uid;
+        $ref = Ref::where("code", "cm")->first();
+        $db = json_decode($ref["data"]);
+        $data = array();
+        foreach ($db as $item) {
+            if($item->uid == $uid)
+            {
+                $his = History::where("uid", $item->uid)->where("status", 'p')->get()->toArray();
+                $withdraw = array_sum(array_column($his,'amount'));
+
+                $list = new \stdClass();
+                $list->uid = $item->uid;
+                $list->deposit = $item->deposit;
+                $list->inviteTime = $item->inviteTime;
+                $list->refund = $item->total;
+                $list->withdraw = $withdraw;
+                array_push($data, $list);
+            }
+        }
+        $balance =  $data[0]['refund'];
+        return $balance;
+
         $data = new History([
             'uid' => $request->uid,
             'amount' => $request->amount,
