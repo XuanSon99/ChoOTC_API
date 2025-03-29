@@ -55,6 +55,10 @@ class RefController extends Controller
                 array_push($data, $list);
             }
         }
+
+        $balance =  $data[0]['refund'];
+        return $balance;
+
         return $data;
     }
 
