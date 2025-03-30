@@ -44,7 +44,7 @@ class HistoryController extends Controller
         $withdraw = array_values($data)[0]->withdraw;
         $balance = $refund / 2 - $withdraw;
 
-        if($balance < $request->amount){
+        if($request->amount - $balance > 1){
             return response()->json(["status" => false, "message" => ["Số dư không đủ"]], 400);
         }
 
@@ -56,7 +56,7 @@ class HistoryController extends Controller
         $data->save();
 
         $chat_id = "-4768463107";
-        $text = "User <u><code>" . $request->uid . "</code></u> vừa thực hiện lệnh rút " . $request->amount . " USDT";
+        $text = "User <code>" . $request->uid . "</code> vừa thực hiện lệnh rút " . $request->amount . " USDT";
         $this->sendMessage($chat_id, $text);
 
         return response()->json(["status" => true, "message" => ["Thêm thành công!"]], 201);
