@@ -17,20 +17,20 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cate_list = Category::get();
-        $data = array();
-        foreach ($cate_list as $cate) {
-            $list = new \stdClass();
-            $parent = Category::find($cate->parent_id);
-            if (!is_null($parent)) {
-                $list->parent_slug = $parent->slug;
-                $list->id = $cate->id;
-                $list->name = $cate->name;
-                $list->slug = $cate->slug;
-                $list->created_at = $cate->created_at;
-                array_push($data, $list);
-            }
-        }
+        $cate_list = Category::orderBy('created_at', 'DESC')->get();
+        // $data = array();
+        // foreach ($cate_list as $cate) {
+        //     $list = new \stdClass();
+        //     $parent = Category::find($cate->parent_id);
+        //     if (!is_null($parent)) {
+        //         $list->parent_slug = $parent->slug;
+        //         $list->id = $cate->id;
+        //         $list->name = $cate->name;
+        //         $list->slug = $cate->slug;
+        //         $list->created_at = $cate->created_at;
+        //         array_push($data, $list);
+        //     }
+        // }
         return $data;
     }
 
