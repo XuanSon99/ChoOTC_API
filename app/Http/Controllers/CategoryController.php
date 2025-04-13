@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cate_list = Category::orderBy('created_at', 'DESC')->get();
+        $data = Category::orderBy('created_at', 'DESC')->get();
         // $data = array();
         // foreach ($cate_list as $cate) {
         //     $list = new \stdClass();
