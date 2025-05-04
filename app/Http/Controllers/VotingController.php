@@ -20,8 +20,8 @@ class VotingController extends Controller
         $data = new Voting([
             'username' => $request->username,
             'start_time' => $request->start_time,
-            'voted_user' => $request->voted_user,
-            'percent' => $request->percent,
+            'voted_user' => '',
+            'percent' => 0,
             'msg_id' => $request->msg_id
         ]);
         $data->save();
